@@ -8,6 +8,6 @@ import React, {
   AppRegistry,
 } from 'react-native';
 
-var Main = require('./src/components/main');
+var Main = require('./src/main');
 
 AppRegistry.registerComponent('Mountains', () => Main);
