@@ -4,6 +4,7 @@ import React, {
   StyleSheet,
   ListView,
   Image,
+  TouchableWithoutFeedback
 } from 'react-native';
 
 var _ = require('lodash');
@@ -30,16 +31,27 @@ module.exports = React.createClass({
 
   renderMountain: function(mountain) {
     return (
-      <Image
-        style={styles.backgroundImage}
-        source={{uri: mountain.image_url}}>
-        <View style={styles.labelWrapper}>
-          <Text style={styles.label}>
-            {_.toUpper(mountain.name)}
-          </Text>
-        </View>
-      </Image>
+      <TouchableWithoutFeedback
+        underlayColor='gray'
+        onPress={this.onPress}
+      >
+        <Image
+          style={styles.backgroundImage}
+          source={{uri: mountain.image_url}}>
+          <View style={styles.labelWrapper}>
+            <Text style={styles.label}>
+              {_.toUpper(mountain.name)}
+            </Text>
+          </View>
+        </Image>
+      </TouchableWithoutFeedback>
     )
+  },
+
+  onPress: function() {
+    // fetch
+    // 1) api call
+    // 2) navigation change
   }
 });
 
